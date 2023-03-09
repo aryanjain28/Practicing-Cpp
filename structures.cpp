@@ -17,6 +17,7 @@ struct Student
     {
         return f + " " + l;
     };
+
 } student, student1, student2;
 
 string Student::getDetails()
