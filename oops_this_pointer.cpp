@@ -2,6 +2,19 @@
 
 using namespace std;
 
+struct Box2
+{
+    int w;
+    int h;
+    int l;
+    void volume();
+};
+
+void Box2::volume()
+{
+    cout << w * h * l << endl;
+}
+
 class Box
 {
 private:
@@ -28,4 +41,9 @@ Box::Box(int w, int h, int l)
 int main()
 {
     Box box(10, 20, 25);
+    Box2 b;
+    b.h = 12;
+    b.l = 12;
+    b.w = 1;
+    b.volume();
 }
