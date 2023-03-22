@@ -11,6 +11,7 @@ private:
     int b;
 
 public:
+    Pixel();
     Pixel(int, int, int);
 };
 
@@ -35,21 +36,42 @@ Image::Image(vector<Pixel> pixels)
     this->pixels = pixels;
 }
 
+void print(vector<int> roll)
+{
+    for (int i = 0; i < 10; i++)
+    {
+        cout << " Element @ " << i << ": " << roll[i] << endl;
+    }
+}
+
 int main()
 {
     vector<int> roll;
+    roll.resize(13);
+    print(roll);
+
+    cout << "Roll @ 10: " << roll.at(10) << endl;
+
+    cout << "Empty? " << roll.empty() << endl;
 
     for (int i = 0; i < 10; i++)
     {
         roll.push_back((i + 1) * 200);
     }
 
-    for (int i = 0; i < 10; i++)
-    {
-        cout << " Element @ " << i << ": " << roll[i] << endl;
-    }
+    print(roll);
 
-    // vector of pointers.
+    cout << "Size: " << roll.size() << endl;
+    cout << "Empty? " << roll.empty() << endl;
+
+    roll.resize(5);
+
+    cout << "Size: " << roll.size() << endl;
+    cout << "Empty? " << roll.empty() << endl;
+
+    print(roll);
+
+        // vector of pointers.
     int image_h = 10;
     int image_w = 10;
     vector<Pixel> pixels;
@@ -62,6 +84,14 @@ int main()
     }
 
     Image image(pixels);
+
+    cout << "The size of the image: " << pixels.size() << endl;
+    cout << "The max_size: " << pixels.max_size() << endl;
+
+    // pixels.resize(5);
+
+    // cout << "The size of the image: " << pixels.size() << endl;
+    // cout << "The max_size: " << pixels.max_size() << endl;
 
     return 0;
 }
