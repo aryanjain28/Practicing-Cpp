@@ -13,9 +13,9 @@ using namespace std;
 
 void print(int arr[], int size)
 {
-    for (int i; i < size; i++)
+    for (int i; i < size; ++i)
     {
-        cout << arr[i] << endl;
+        cout << arr[i] << "-";
     }
 }
 
@@ -29,6 +29,14 @@ int main()
     sort(arr, arr + size);
 
     print(arr, size);
+
+    cout << "binary_search result: " << binary_search(arr, arr + size, 4) << endl;
+
+    sort(arr, arr + size);
+
+    print(arr, size);
+
+    cout << "binary_search result: " << binary_search(arr, arr + size, 8) << endl;
 
     return 1;
 }
