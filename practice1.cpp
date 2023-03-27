@@ -3,6 +3,16 @@
 
 using namespace std;
 
+/**
+ *
+ * Diffrerences between a struct and a class.
+ *
+ * 1. Default access for class - private; for struct - public.
+ * 2. No inheriance in struct.
+ * 3. Struct basically for user-defined datatype; Class is for encapsulation and OOPS.
+ *
+ */
+
 struct Student
 {
     string name;
