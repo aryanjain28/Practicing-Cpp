@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 
 using namespace std;
 
@@ -35,4 +36,27 @@ int main()
 
 
     */
+
+    /*
+
+       Types of smart pointers.
+
+       There are 3 types of smart pointers.
+       1. Unique Pointers.
+       2. Shared Pointers.
+       3. Weak Pointers.
+
+       1. Unique Pointers, as the name suggests, are unique. Basically it means that the value inside these type of
+       pointers cannot be shared. A unique pointer points to one address of one object and no other pointer can point
+       to that address.
+
+
+    */
+
+    auto uniq_pointer1 = make_unique<int>(2500);
+    auto uniq_pointer2 = move(uniq_pointer1);
+
+    // cout << uniq_pointer1 << endl;
+    cout << uniq_pointer1.get() << endl;
+    cout << *uniq_pointer1 << endl;
 }
