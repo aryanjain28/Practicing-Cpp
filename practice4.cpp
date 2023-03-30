@@ -4,8 +4,11 @@ using namespace std;
 
 int main()
 {
+    /**
+            Smart Pointers.
+     */
+
     /*
-        Smart Pointers.
 
         Issues with "normal" pointers - >
         Normal pointers have issues like Memory Leaks, Wild Pointers, Data inconsistency.
@@ -20,9 +23,16 @@ int main()
 
     */
 
-    //    What are smart pointers?
+    /*
+            What are smart pointers?
 
-    // -> Smart pointers automatically "deallocates" the memory assigned to the pointer
-    // whenever the destructor is called. Therefore, user does not need to worry about
-    // Memory leaks and stuff.
+            Smart pointers are a wrapper class above the normal pointers. They seem to work in a similar way as
+            normal pointers, syntactically. However, unlike normal pointers, smart pointers can deallocate
+            and free the memory once the object is destroyed.
+
+            Other languages like Java have their garbage collector and it deallocates the memory automatically
+            and the programmer doesn't need to worry about this. However C++ came up with its own implementaion.
+
+
+    */
 }
