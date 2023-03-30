@@ -61,6 +61,7 @@ int main()
     cout << uniq_pointer1.get() << endl;
     cout << *uniq_pointer1 << endl;
 
+    // this will move the ownership to pointer2
     auto uniq_pointer2 = move(uniq_pointer1);
 
     cout << uniq_pointer1.get() << endl; // deallocated.
@@ -68,4 +69,21 @@ int main()
 
     cout << uniq_pointer2.get() << endl;
     cout << *uniq_pointer2 << endl; // 2500
+
+    /*
+
+       2. Shared Pointers, are smart pointers like unique pointers. But unlike unique pointers
+       they can be shared among smiliar objects. This save from data inconsistency.
+       For example if the data is changed, the value for all the pointers will be changed.
+
+       More formally, the ownership of the pointer can be shared.
+       If one owner dies, (deallotes) there are still other.
+
+    */
+
+    cout << "\n\nShared Pointers: " << endl;
+
+    auto shr_pointer1 = make_shared<int>(5680);
+
+    cout << shr_pointer1.get() << endl;
 }
