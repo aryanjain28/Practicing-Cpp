@@ -46,17 +46,26 @@ int main()
        2. Shared Pointers.
        3. Weak Pointers.
 
-       1. Unique Pointers, as the name suggests, are unique. Basically it means that the value inside these type of
-       pointers cannot be shared. A unique pointer points to one address of one object and no other pointer can point
-       to that address.
+    */
 
+    /*
+
+           1. Unique Pointers, as the name suggests, are unique. Basically it means that the value inside these type of
+              pointers cannot be shared. A unique pointer points to one address of one object and no other pointer can point
+              to that address.
 
     */
 
-    auto uniq_pointer1 = make_unique<int>(2500);
-    auto uniq_pointer2 = move(uniq_pointer1);
+    unique_ptr<int> uniq_pointer1 = make_unique<int>(2500);
 
-    // cout << uniq_pointer1 << endl;
     cout << uniq_pointer1.get() << endl;
     cout << *uniq_pointer1 << endl;
+
+    auto uniq_pointer2 = move(uniq_pointer1);
+
+    cout << uniq_pointer1.get() << endl; // deallocated.
+    // cout << *uniq_pointer1 << endl;      // thorws error.
+
+    cout << uniq_pointer2.get() << endl;
+    cout << *uniq_pointer2 << endl; // 2500
 }
