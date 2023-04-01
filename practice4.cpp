@@ -84,21 +84,23 @@ int main()
    cout << "\n\nShared Pointers: " << endl;
 
    auto shr_pointer1 = make_shared<int>(5680);
-   cout << shr_pointer1.get() << endl;
+   cout << "Addr of shr_pointer_1: " << shr_pointer1.get() << endl;
    cout << "Value of shr_pointer_1: " << *shr_pointer1 << endl;
+   cout << "I. Number of owners : " << shr_pointer1.use_count() << endl
+        << endl;
 
-   cout << "I. Number of owners of pointer: " << shr_pointer1.use_count() << endl;
    auto shr_pointer2 = shr_pointer1;
 
-   cout << shr_pointer2.get() << endl;
+   cout << "Addr of shr_pointer_2: " << shr_pointer2.get() << endl;
    cout << "Value of shr_pointer_2: " << *shr_pointer2 << endl;
+   cout << "II. Number of owners : " << shr_pointer1.use_count() << endl;
+   cout << "II. Number of owners : " << shr_pointer2.use_count() << endl
+        << endl;
 
-   cout << "II. Number of owners of pointer: " << shr_pointer1.use_count() << endl;
+   shr_pointer1.reset(); // basically this means that we are removing this pointer
 
-   shr_pointer1.reset();
-
-   cout << "III. Number of owners of pointer: " << shr_pointer1.use_count() << endl;
-   cout << "IV. Number of owners of pointer: " << shr_pointer2.use_count() << endl;
+   cout << "III. Number of owners (shr_pointer1) : " << shr_pointer1.use_count() << endl;
+   cout << "III. Number of owners (shr_pointer2): " << shr_pointer2.use_count() << endl;
 
    cout << shr_pointer1.get() << endl; // 0
    // cout << *shr_pointer1 << endl;      // throws error
