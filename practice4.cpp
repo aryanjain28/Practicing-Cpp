@@ -106,4 +106,44 @@ int main()
    // cout << *shr_pointer1 << endl;      // throws error
 
    shr_pointer2.reset();
+
+   /*
+
+      3. Weak Pointers:
+
+      Weak pointers are a type of smart pointers. But unlike shared and unique poniters,
+      that can store the memory address, weak pointers act more as a
+      "observer" pointers for shared pointers.
+      Meaning, they just tell the "state" of the shared pointers.
+      There are some methods in weak pointers that are very useful.
+
+      weak pointers are initiated using the make_shared() method.
+
+   */
+
+   cout << "\n\nWeak Pointers: " << endl;
+
+   int x = 295378;
+   auto shared_pointer = make_shared<int>(x);
+
+   // defining weak_pointer for the above shared pointer.
+   weak_ptr<int> wk_pointer_1 = shared_pointer;
+
+   cout << "I. Addr of shared_pointer: " << shared_pointer.get() << endl;
+   cout << "I. Value of shared_pointer: " << *shared_pointer << endl;
+   cout << "I. Shared pointer is expired? :" << wk_pointer_1.expired() << endl; // tells if the shared_pointer is expired.
+
+   // wk_pointer_1.reset();                                                   // no more observing; no change in shared pointer
+   cout << "II. Addr of shared_pointer: " << shared_pointer.get() << endl; // 0
+   cout << "II. Value of shared_pointer: " << *shared_pointer << endl;     // 0
+   cout << "II. wk_pointer_1.use_count(): " << wk_pointer_1.use_count() << endl;
+   cout << "II. shared_pointer.use_count(): " << shared_pointer.use_count() << endl;
+
+   // resetting
+   shared_pointer.reset();
+   cout << "III. Addr of shared_pointer: " << shared_pointer.get() << endl; // 0
+   // cout << "Value of shared_pointer: " << *shared_pointer << endl; // throws error
+   cout << "III. Shared pointer is expired? :" << wk_pointer_1.expired() << endl; // tells if the shared_pointer is expired.
+   cout << "III. wk_pointer_1.use_count(): " << wk_pointer_1.use_count() << endl;
+   cout << "III. shared_pointer.use_count(): " << shared_pointer.use_count() << endl;
 }
