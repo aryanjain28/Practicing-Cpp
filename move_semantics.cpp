@@ -3,6 +3,31 @@
 
 using namespace std;
 
+// Basically, move_semantics is the single,
+// biggest use case of r-value-references.
+
+// We use move_sematics to optimize out c++ code.
+// Nothing else.
+
+// Generally speaking, move_semantics allows us to "move",
+// objects around.
+// This was not possible before C++11, because,
+// there was no r-value-reference.
+
+// The basic idea is that when we are writing C++
+// code, then there are many cases when we do not
+// want to copy objects from one place to another.
+// But, before move_semantics, that was the only way
+// to get an object from one place to another.
+
+// Move semantics allows us to "move" an object
+// instead of creating a new copy inside memory.
+// That's the biggest advantage.
+
+// For eg. to get an object inside a function, I first
+// have to create a copy of that object inside the
+// function. And then I can get the data.
+
 // creating a class
 class String
 {
