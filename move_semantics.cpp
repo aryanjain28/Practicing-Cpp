@@ -38,13 +38,11 @@ public:
     ~String()
     {
         cout << "Destroyed!" << endl;
-        delete m_data;
+        delete[] m_data;
     }
 
     void Print()
     {
-        // cout << "m_data" << m_data;
-        // cout << "m_data[0]" << m_data[0];
         for (int i = 0; i < m_size; i++)
         {
             printf("%c", m_data[i]);
