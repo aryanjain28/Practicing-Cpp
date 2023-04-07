@@ -12,8 +12,16 @@ struct Person
     Person *bestFriend;
     Person *friends[MAX_FRIENDS];
     Person getBestFriend();
+    void addFriend(Person &newFriend);
     void viewFriends();
+    int noOfFriends = 0;
 };
+
+void Person::addFriend(Person &newFriend)
+{
+    friends[noOfFriends] = &newFriend;
+    noOfFriends += 1;
+}
 
 Person Person::getBestFriend()
 {
@@ -22,8 +30,8 @@ Person Person::getBestFriend()
 
 void Person::viewFriends()
 {
-    cout << this->name << "'s friends: " << endl;
-    for (int i = 0; i < 2; i++)
+    cout << name << "'s friends: " << endl;
+    for (int i = 0; i < noOfFriends; i++)
     {
         cout << (*friends[i]).name << endl;
     }
@@ -57,8 +65,10 @@ int main()
     cout << endl
          << endl;
 
-    p1.friends[0] = &p2;
-    p1.friends[1] = &p3;
+    p1.viewFriends();
+
+    p1.addFriend(p2);
+    p1.addFriend(p3);
 
     p1.viewFriends();
 }
