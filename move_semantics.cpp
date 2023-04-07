@@ -90,7 +90,12 @@ public:
 
     // move constructor.
     Entity(String &&name)
-        : m_name(move(name))
+        // we have to explicitly define the
+        // move constructor.?
+        // We can typecase the object or use
+        // move()
+        // : m_name(move(name))
+        : m_name((String &&) name)
     {
     }
 
