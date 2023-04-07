@@ -3,18 +3,30 @@
 
 using namespace std;
 
+const int MAX_FRIENDS = 20;
+
 struct Person
 {
     string name;
     int age;
     Person *bestFriend;
-    // Person *friends[];
+    Person *friends[MAX_FRIENDS];
     Person getBestFriend();
+    void viewFriends();
 };
 
 Person Person::getBestFriend()
 {
     return *bestFriend;
+}
+
+void Person::viewFriends()
+{
+    cout << this->name << "'s friends: " << endl;
+    for (int i = 0; i < 2; i++)
+    {
+        cout << (*friends[i]).name << endl;
+    }
 }
 
 int main()
@@ -41,4 +53,12 @@ int main()
     cout << p1.name << " and " << p1.getBestFriend().name << " are best friends." << endl;
     cout << p2.name << " and " << p2.getBestFriend().name << " are best friends." << endl;
     cout << p3.name << " and " << p3.getBestFriend().name << " are best friends." << endl;
+
+    cout << endl
+         << endl;
+
+    p1.friends[0] = &p2;
+    p1.friends[1] = &p3;
+
+    p1.viewFriends();
 }
