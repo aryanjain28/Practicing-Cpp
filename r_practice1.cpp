@@ -48,5 +48,15 @@ int main()
     cout << "*dPointer: " << *dPointer << endl;
     cout << "**dPointer: " << **dPointer << endl;
 
+    // Similarly there can be triple pointers.
+    int ***tPointer = &dPointer;
+
+    cout << tPointer << endl;  // mem address of dPointer.
+    cout << *tPointer << endl; // dPointer.
+
+    // These are the same.
+    cout << "dPointer: " << dPointer << endl;
+    cout << "*tPointer: " << *tPointer << endl;
+
     return 1;
 }
