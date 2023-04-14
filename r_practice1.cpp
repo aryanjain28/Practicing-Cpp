@@ -58,5 +58,11 @@ int main()
     cout << "dPointer: " << dPointer << endl;
     cout << "*tPointer: " << *tPointer << endl;
 
+    // Pointers can only store memory address.
+    // It gives address if we try to set it to something
+    // else.
+
+    // int *pointer = 12; // int cannot be used to refer *int
+
     return 1;
 }
