@@ -64,5 +64,35 @@ int main()
 
     // int *pointer = 12; // int cannot be used to refer *int
 
+    // the datatype used with pointer describes the
+    // datatype of the value for which the pointer is
+    // storing the address.
+
+    // therefore the following are valid:
+
+    string str = "Aryan Jain";
+    string *pointer_s = &str;
+
+    cout << "string Mem: " << pointer_s << endl;
+    cout << "string Val: " << *pointer_s << endl;
+
+    char c = 'a';
+    char *pointer_c = &c;
+
+    cout << "char Mem: " << pointer_c << endl;
+    cout << "char Val: " << *pointer_c << endl;
+
+    float f = 3.17238457236594;
+    float *pointer_f = &f;
+
+    cout << "float Mem: " << pointer_f << endl;
+    cout << "float Val: " << *pointer_f << endl;
+
+    double d = 3.17238457236594;
+    double *pointer_d = &d;
+
+    cout << "double Mem: " << pointer_d << endl;
+    cout << "double Val: " << *pointer_d << endl;
+
     return 1;
 }
