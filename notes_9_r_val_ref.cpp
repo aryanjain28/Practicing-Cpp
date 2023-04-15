@@ -2,6 +2,14 @@
 
 using namespace std;
 
+int inc10(int &&x);
+int &&getLargest(int &a, int &b);
+
+// int &&inc20(int &&x)
+// {
+//     return move(x + 20);
+// }
+
 int main()
 {
     // we know that r-values are entities / objects that
@@ -31,7 +39,12 @@ int main()
     // But why? Its exactly similar to
     // int x = 10;
 
-    // The reason in 'move-semantics' which is another topic!
+    // The reason is optimization!
+    // We don't have to worry about copying the
+    // object. We just pass the reference and
+    // use it. (moving)
+    // The other biggest usecase is 'move-semantics'
+    // which is another topic!
 
     // can we pass this to a function?
     // yes; take a look at inc10 function below
@@ -41,6 +54,16 @@ int main()
 
     inc10(10);     // no error
     inc10(a + 10); // no error
+
+    // int &&y = inc20(20);
+    // cout << y << endl;
+
+    // returning r-value reference from a function.
+    int p = 9;
+    int q = 10;
+    int &&result = getLargest(p, q);
+
+    cout << "The largest value is: " << result << endl;
 }
 
 // Now this function has become a function
@@ -49,4 +72,9 @@ int main()
 int inc10(int &&x)
 {
     return x * 10;
+}
+
+int &&getLargest(int &a, int &b)
+{
+    return a > b ? move(a) : move(b);
 }
