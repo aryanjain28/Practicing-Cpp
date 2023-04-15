@@ -47,8 +47,11 @@ int main()
     // Meaning, only one 'unique pointer' can point to a
     // variable's address. If we try to assign a different
     // pointer to point the same variable. It gives error.
+    // We can move the ownership of one unique-pointer to another,
+    // using the move() method. However, the first pointer will be
+    // deallocated.
 
-    // SHARED POINERS.
+    // SHARED POINTERS.
     // Shared pointers, are the smart pointer that are basically
     // opposite of the unique pointers. Meaning, multiple shared
     // pointers can point towards the same memory address.
