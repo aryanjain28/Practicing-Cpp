@@ -32,4 +32,21 @@ int main()
     // int x = 10;
 
     // The reason in 'move-semantics' which is another topic!
+
+    // can we pass this to a function?
+    // yes; take a look at inc10 function below
+
+    // ### inc10(a); // throws error; a => l-value
+    // ### inc10(x); // throws error; x => l-value
+
+    inc10(10);     // no error
+    inc10(a + 10); // no error
+}
+
+// Now this function has become a function
+// that will ONLY accept r-value references.
+// Meaning it will only accept temporary objects.
+int inc10(int &&x)
+{
+    return x * 10;
 }
