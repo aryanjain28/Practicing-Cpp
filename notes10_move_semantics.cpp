@@ -1,3 +1,1 @@
-#include <iostream>
-
-using namespace std;
+// refer move_semantics.cpp and move_semantics2.cpp
